@@ -25,7 +25,6 @@ esMujer(cristal).
 esMujer(mariel).
 esMujer(alejandra).
 
-% hijos de cristiano
 esHijoOhija(cristiano,juan).
 esHijoOhija(cristiano,batista).
 
