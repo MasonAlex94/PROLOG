@@ -1,24 +1,28 @@
-ensena(juan, 'Base de datos II').
-ensena(maria, 'Base de datos II').
-ensena(maria, 'Redes I').
-ensena(maria, 'IA').
-ensena(estela, 'Redes I').
-ensena(estela, 'IA').
+%enseña
 
-asisteA(arturito, 'Base de datos II').
-asisteA(arturito, 'Redes I').
-asisteA(andres, 'Redes I').
-asisteA(jose, 'Base de Datos II').
-asisteA(jose, 'Redes I').
-asisteA(jose, 'IA').
-asisteA(karina, 'Redes I').
-asisteA(karina, 'IA').
-asisteA(mariel, 'IA').
+ensenaA(juan,'Base de datos II').
+ensenaA(estela,'Redes I').
+ensenaA(estela,'Inteligencia artificial').
+ensenaA(maria,'Base de datos II').
+ensenaA(maria,'Redes I').
+ensenaA(maria,'Inteligencia artificial').
 
-% es docente de
-% define el nombre y variable de la cabeza
-esDocenteDe(Docente, Estudiante):-ensena(Docente, Materia),asisteA(Estudiante, Materia). 
+%asiste
 
-% es pana de
+asisteA(arturo,'Redes I').
+asisteA(arturo,'Base de datos II').
+asisteA(andres,'Redes i').
+asisteA(andres,'Inteligencia Artificial').
+asisteA(jose,'Redes I').
+asisteA(jose,'Base de datos II').
+asisteA(jose,'Inteligencia Artificial').
+asisteA(karina,'Redes I').
+asisteA(karina,'Inteligencia Artificial').
+asisteA(mariel,'Inteligencia Artificial').
 
-esCompaDe(Estudiante, Materia):-asiste(EstudianteA, Materia),asiste(EstudianteB, Materia).
+%1er paso Identificar las condiciones
+%2do paso Identificar si es AND y OR
+%3do Escribir Condiciones en prolog
+
+esDocenteDe(Docente,Estudiante):-ensenaA(Docente,Materia),asisteA(Estudiante,Materia).
+esCompaneroDe(EstudianteA,EstudianteB):-asisteA(EstudianteA,Materia),asisteA(EstudianteB,Materia).
