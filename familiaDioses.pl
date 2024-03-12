@@ -82,3 +82,13 @@ esHermana(Persona1, Persona2) :-
     esMadre(Madre, Persona1),
     esMadre(Madre, Persona2),
     Persona1 \= Persona2.
+
+esAbuelo(Abuelo, Nieto) :-
+    esHombre(Abuelo),
+    esPadre(Abuelo, PadreOMadre),
+    esDedendienteDirecto(Nieto, PadreOMadre).
+
+esAbuela(Abuela, Nieto) :-
+    esMujer(Abuela),
+    esMadre(Abuela, PadreOMadre),
+    esDedendienteDirecto(Nieto, PadreOMadre).
