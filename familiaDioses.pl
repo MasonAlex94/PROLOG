@@ -92,3 +92,16 @@ esAbuela(Abuela, Nieto) :-
     esMujer(Abuela),
     esMadre(Abuela, PadreOMadre),
     esDedendienteDirecto(Nieto, PadreOMadre).
+
+% esDescendienteDe(Descendiente, Ancestro) es verdadero si Descendiente es descendiente directo o indirecto de Ancestro.
+esDescendienteDe(Descendiente, Ancestro) :-
+    esDedendienteDirecto(Descendiente, Ancestro).
+
+esDescendienteDe(Descendiente, Ancestro) :-
+    esDedendienteDirecto(Descendiente, Intermedio),
+    esDescendienteDe(Intermedio, Ancestro).
+
+    maximoAncestro(Ancestro) :-
+        esDescendienteDe(_, Ancestro), % Asegura que Ancestro es un ancestro de alguien
+        \+ (esDescendienteDe(_, PosibleAncestroSuperior), % Verifica que no hay un ancestro superior
+            esDescendienteDe(Ancestro, PosibleAncestroSuperior)). % Ancestro debe ser descendiente de nadie más
